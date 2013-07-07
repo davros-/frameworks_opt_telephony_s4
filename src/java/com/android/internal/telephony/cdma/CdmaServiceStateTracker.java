@@ -489,7 +489,9 @@ public class CdmaServiceStateTracker extends ServiceStateTracker {
             ar = (AsyncResult)msg.obj;
             if (ar.exception == null) {
                 ints = (int[]) ar.result;
-                mPrlVersion = Integer.toString(ints[0]);
+                if (ints.length != 0) {
+                    mPrlVersion = Integer.toString(ints[0]);
+                }
             }
             break;
 

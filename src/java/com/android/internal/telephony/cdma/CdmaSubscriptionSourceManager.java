@@ -159,7 +159,8 @@ public class CdmaSubscriptionSourceManager extends Handler {
      *            subscription source call
      */
     private void handleGetCdmaSubscriptionSource(AsyncResult ar) {
-        if ((ar.exception == null) && (ar.result != null)) {
+        int[] ints = (int[]) ar.result;
+        if ((ar.exception == null) && (ar.result != null) && (ints.length != 0)) {
             int newSubscriptionSource = ((int[]) ar.result)[0];
 
             if (newSubscriptionSource != mCdmaSubscriptionSource.get()) {
